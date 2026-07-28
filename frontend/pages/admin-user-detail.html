@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Form System — Student Detail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+<!-- Top Bar -->
+<header class="topbar">
+    <div class="topbar-brand">
+        <span class="brand-mark">SFS</span>
+        <span class="brand-name">Admin Panel</span>
+    </div>
+
+    <div class="account-menu-wrap">
+        <a href="admin-users.html" class="admin-back-link">← All Students</a>
+    </div>
+</header>
+
+<main class="dashboard">
+
+    <section class="welcome-row">
+        <div>
+            <span class="welcome-eyebrow">Admin</span>
+            <h1 class="welcome-heading" id="studentNameHeading">Loading...</h1>
+        </div>
+        <div class="status-chip" id="statusChip">
+            <span class="status-dot"></span>
+            <span id="statusText">Checking...</span>
+        </div>
+    </section>
+
+    <!-- Full Profile View -->
+    <section id="profileView">
+
+        <!-- Personal -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Personal Information</h3>
+            <div class="view-row-grid">
+                <div class="view-item"><span class="view-label">Gender</span><span class="view-value" id="viewGender">—</span></div>
+                <div class="view-item"><span class="view-label">Date of Birth</span><span class="view-value" id="viewDob">—</span></div>
+                <div class="view-item"><span class="view-label">Mobile</span><span class="view-value" id="viewMobile">—</span></div>
+                <div class="view-item"><span class="view-label">Email</span><span class="view-value" id="viewEmail">—</span></div>
+                <div class="view-item view-full"><span class="view-label">Present Address</span><span class="view-value" id="viewPresentAddress">—</span></div>
+                <div class="view-item view-full"><span class="view-label">Permanent Address</span><span class="view-value" id="viewPermanentAddress">—</span></div>
+            </div>
+        </div>
+
+        <!-- Family -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Family Information</h3>
+            <div class="view-row-grid">
+                <div class="view-item"><span class="view-label">Father's Name</span><span class="view-value" id="viewFatherName">—</span></div>
+                <div class="view-item"><span class="view-label">Father's Occupation</span><span class="view-value" id="viewFatherOccupation">—</span></div>
+                <div class="view-item"><span class="view-label">Mother's Name</span><span class="view-value" id="viewMotherName">—</span></div>
+                <div class="view-item"><span class="view-label">Mother's Occupation</span><span class="view-value" id="viewMotherOccupation">—</span></div>
+            </div>
+            <div id="viewSiblingsWrap">
+                <h4 class="view-subtitle">Siblings</h4>
+                <div id="viewSiblingsList" class="chip-list"></div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Educational Background</h3>
+            <div class="edu-block">
+                <span class="edu-tag">SSC</span>
+                <span class="edu-name" id="viewSscSchool">—</span>
+                <span class="edu-detail" id="viewSscDetail">—</span>
+            </div>
+            <div class="edu-block">
+                <span class="edu-tag">HSC</span>
+                <span class="edu-name" id="viewHscCollege">—</span>
+                <span class="edu-detail" id="viewHscDetail">—</span>
+            </div>
+            <div class="edu-block">
+                <span class="edu-tag">UG</span>
+                <span class="edu-name" id="viewUniversity">—</span>
+                <span class="edu-detail" id="viewUgDetail">—</span>
+            </div>
+        </div>
+
+        <!-- Blood Donation -->
+        <div class="card view-card hidden" id="bloodInfoCard">
+            <h3 class="view-card-title">Blood Donation</h3>
+            <div class="view-row-grid">
+                <div class="view-item">
+                    <span class="view-label">Blood Group</span>
+                    <span class="view-value" id="bloodGroupDisplay">—</span>
+                </div>
+                <div class="view-item" id="donorStatusWrap">
+                    <span class="view-label">Donor Status</span>
+                    <span class="view-value" id="donorStatusDisplay">—</span>
+                </div>
+            </div>
+            <div id="bloodAvailabilityBox" class="blood-status-box hidden"></div>
+        </div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Skills</h3>
+            <div id="viewSkillsList" class="chip-list"></div>
+            <p class="view-empty hidden" id="skillsEmpty">No skill has been added.</p>
+        </div>
+
+        <!-- Experience -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Experience</h3>
+            <div id="viewExperienceList"></div>
+            <p class="view-empty hidden" id="experienceEmpty">No experience has been added.</p>
+        </div>
+
+    </section>
+
+    <!-- Activity History -->
+    <div class="card">
+        <h2 class="card-title">Activity History</h2>
+        <div class="timeline" id="historyTimeline">
+            <p class="admin-loading">Loading...</p>
+        </div>
+    </div>
+
+</main>
+
+<script src="../js/auth.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/admin-user-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #FAF6EE;
+    color: #16233F;
+}
+
+/* ========== TOP BAR ========== */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: #16233F;
+}
+
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-mark {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #A9812F;
+    color: #16233F;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.brand-name {
+    color: #FAF6EE;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.exit-link {
+    color: rgba(250, 246, 238, 0.7);
+    font-size: 13px;
+    text-decoration: none;
+    border: 1px solid rgba(250, 246, 238, 0.25);
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.exit-link:hover {
+    color: #FAF6EE;
+    border-color: rgba(250, 246, 238, 0.5);
+}
+
+/* ========== PAGE LAYOUT ========== */
+.form-page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 100px;
+}
+
+/* ========== STEPPER ========== */
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    row-gap: 16px;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.step-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1.5px solid #D8D0BC;
+    color: #A0977E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.25s;
+}
+
+.step-name {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #A0977E;
+    font-weight: 600;
+}
+
+.step-item.active .step-circle {
+    background: #16233F;
+    border-color: #16233F;
+    color: #FAF6EE;
+}
+
+.step-item.active .step-name {
+    color: #16233F;
+}
+
+.step-item.done .step-circle {
+    background: #A9812F;
+    border-color: #A9812F;
+    color: #FFFFFF;
+}
+
+.step-item.done .step-name {
+    color: #A9812F;
+}
+
+.step-line {
+    width: 50px;
+    height: 1.5px;
+    background: #D8D0BC;
+    margin: 0 6px;
+    margin-bottom: 22px;
+}
+
+/* ========== FORM SHELL ========== */
+.form-shell {
+    background: #FFFFFF;
+    border: 1px solid #EFE9DA;
+    border-radius: 6px;
+    padding: 44px;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-eyebrow {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #A9812F;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.step-heading {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.step-desc {
+    font-size: 13px;
+    color: #5B6472;
+    margin-bottom: 32px;
+}
+
+.sub-heading {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #16233F;
+    margin: 28px 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #EFE9DA;
+}
+
+.sub-heading:first-of-type {
+    margin-top: 0;
+}
+
+/* ========== FIELDS ========== */
+.field-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 20px;
+}
+
+.field-full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #5B6472;
+    margin-bottom: 8px;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid #D8D0BC;
+    background: transparent;
+    padding: 8px 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #16233F;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-bottom-color: #A9812F;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #B7B0A0;
+}
+
+.field textarea {
+    resize: none;
+}
+
+.field-inline {
+    max-width: 240px;
+    margin-bottom: 20px;
+}
+
+/* ========== SIBLINGS ========== */
+.sibling-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.sibling-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 16px;
+    background: #FBF8F1;
+    border: 1px solid #EFE9DA;
+    border-radius: 4px;
+}
+
+.sibling-row .field label {
+    font-size: 11px;
+}
+
+/* ========== ERROR ========== */
+.form-error {
+    font-size: 13px;
+    color: #B23B3B;
+    min-height: 18px;
+    margin-top: 20px;
+}
+
+/* ========== STEP ACTIONS ========== */
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    padding-top: 24px;
+}
+
+.btn-primary {
+    background: #16233F;
+    color: #FAF6EE;
+    border: none;
+    padding: 13px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #A9812F;
+}
+
+.btn-primary:disabled {
+    background: #B7B0A0;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #5B6472;
+    border: 1.5px solid #D8D0BC;
+    padding: 12px 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-secondary:hover {
+    border-color: #A9812F;
+    color: #16233F;
+}
+
+/* ========== PHOTO UPLOAD ========== */
+.photo-upload-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #EFE9DA;
+}
+
+.photo-preview {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #FBF8F1;
+    border: 1.5px dashed #D8D0BC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#photoPlaceholder {
+    font-size: 11px;
+    color: #A0977E;
+    text-align: center;
+}
+
+.photo-upload-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.photo-btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 9px 20px;
+    font-size: 13px;
+}
+
+.photo-hint {
+    font-size: 12px;
+    color: #A0977E;
+}
+
+/* ========== CHECKBOX ========== */
+.checkbox-field {
+    margin-top: -8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #5B6472;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* ========== DYNAMIC CONTAINER (Skills / Experience) ========== */
+.dynamic-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.dynamic-row {
+    position: relative;
+    padding: 20px;
+    background: #FBF8F1;
+    border: 1px solid #EFE9DA;
+    border-radius: 4px;
+}
+
+.dynamic-row .field-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+.remove-row-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #B23B3B;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.empty-state {
+    font-size: 13px;
+    color: #A0977E;
+    padding: 20px;
+    text-align: center;
+    background: #FBF8F1;
+    border: 1px dashed #D8D0BC;
+    border-radius: 4px;
+}
+
+.btn-add {
+    background: transparent;
+    color: #16233F;
+    border: 1.5px dashed #A9812F;
+    padding: 11px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-add:hover {
+    background: #FBF3E4;
+}
+
+/* ========== EXPERIENCE ROW SPECIFIC ========== */
+.exp-current-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+    .topbar {
+        padding: 16px 24px;
+    }
+
+    .form-page {
+        padding: 32px 16px 80px;
+    }
+
+    .form-shell {
+        padding: 28px 22px;
+    }
+
+    .field-grid,
+    .sibling-row,
+    .dynamic-row .field-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step-line {
+        width: 24px;
+    }
+
+    .step-heading {
+        font-size: 22px;
+    }
+}
+
+/* ========== BLOOD DONATION SECTION ========== */
+.hidden {
+    display: none !important;
+}
+
+.blood-subsection {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed #E4DED0;
+}
+
+.field-inline-radio {
+    margin-bottom: 20px;
+}
+
+.radio-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: #16233F;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+
+.radio-label input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.availability-box {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.availability-box.eligible {
+    background: #EFF7F1;
+    border: 1px solid #C9E4D1;
+    color: #3F7D58;
+}
+
+.availability-box.waiting {
+    background: #FBF3E4;
+    border: 1px solid #E9D9B8;
+    color: #8A6D1F;
+}
+
+.donor-note {
+    font-size: 12.5px;
+    color: #5B6472;
+    background: #FBF8F1;
+    border: 1px solid #EFE9DA;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-top: 4px;
+}

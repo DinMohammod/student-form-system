@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Form System — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<!-- Top Bar -->
+<header class="topbar">
+    <div class="topbar-brand">
+        <span class="brand-mark">SFS</span>
+        <span class="brand-name">Student Form System</span>
+    </div>
+
+    <div class="account-menu-wrap">
+        <button class="account-trigger" id="accountTrigger">
+            <span class="account-avatar" id="accountAvatar">A</span>
+            <span class="account-arrow">▾</span>
+        </button>
+
+        <div class="account-dropdown hidden" id="accountDropdown">
+            <a href="admin-users.html" class="dropdown-item hidden" id="adminPanelLink">Admin Panel</a>
+            <a href="accountSetting.html" class="dropdown-item">Account Settings</a>
+            <button class="dropdown-item" id="logoutMenuBtn">Logout</button>
+        </div>
+    </div>
+</header>
+
+<main class="dashboard">
+
+    <!-- Welcome Section -->
+    <section class="welcome-row">
+        <div>
+            <span class="welcome-eyebrow">Dashboard</span>
+            <h1 class="welcome-heading" id="welcomeHeading">Welcome</h1>
+        </div>
+        <div class="status-chip" id="statusChip">
+            <span class="status-dot"></span>
+            <span id="statusText">Checking...</span>
+        </div>
+    </section>
+
+    <div class="grid">
+
+        <!-- Left: Profile + Action -->
+        <div class="col-main">
+
+            <div class="card">
+                <h2 class="card-title">Application</h2>
+                <p class="card-desc" id="applicationDesc">
+                    Your application status is loading...
+                </p>
+            <div class="card-btn-row">
+                <button class="action-btn" id="actionBtn">Loading...</button>
+                <a href="cv.html" target="_blank" class="action-btn-secondary hidden" id="viewCvBtn">View CV</a>
+            </div>
+        </div>
+
+            <div class="card">
+                <h2 class="card-title">Profile Summary</h2>
+                <div class="profile-row">
+                    <span class="profile-label">Name</span>
+                    <span class="profile-value" id="profileName">—</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Email</span>
+                    <span class="profile-value" id="profileEmail">—</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Joined</span>
+                    <span class="profile-value" id="profileJoined">—</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right: Progress Ledger -->
+        <div class="col-side">
+            <div class="card ledger-card">
+                <h2 class="card-title">Application Progress</h2>
+                <div class="progress-ledger" id="progressLedger">
+    <div class="progress-row" data-step="personal">
+        <span class="progress-icon">○</span>
+        <span class="progress-label">Personal Information</span>
+    </div>
+    <div class="progress-row" data-step="family">
+        <span class="progress-icon">○</span>
+        <span class="progress-label">Family Information</span>
+    </div>
+    <div class="progress-row" data-step="education">
+        <span class="progress-icon">○</span>
+        <span class="progress-label">Educational Background</span>
+    </div>
+    <div class="progress-row" data-step="skills">
+        <span class="progress-icon">○</span>
+        <span class="progress-label">Skills</span>
+    </div>
+    <div class="progress-row" data-step="experience">
+        <span class="progress-icon">○</span>
+        <span class="progress-label">Experience</span>
+    </div>
+</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Full Profile View (শুধু Completed হলে দেখাবে) -->
+    <section class="profile-view hidden" id="profileView">
+
+        <div class="profile-header-card">
+            <div class="profile-photo-wrap">
+                <img id="viewPhoto" class="profile-photo" style="display:none;">
+                <span id="viewPhotoPlaceholder" class="profile-photo-placeholder">No Photo</span>
+            </div>
+            <div>
+                <h2 class="profile-fullname" id="viewFullName">—</h2>
+                <p class="profile-tagline" id="viewTagline">—</p>
+            </div>
+        </div>
+
+        <!-- Personal -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Personal Information</h3>
+            <div class="view-row-grid">
+                <div class="view-item"><span class="view-label">Gender</span><span class="view-value" id="viewGender">—</span></div>
+                <div class="view-item"><span class="view-label">Date of Birth</span><span class="view-value" id="viewDob">—</span></div>
+                <div class="view-item"><span class="view-label">Mobile</span><span class="view-value" id="viewMobile">—</span></div>
+                <div class="view-item"><span class="view-label">Email</span><span class="view-value" id="viewEmail">—</span></div>
+                <div class="view-item view-full"><span class="view-label">Present Address</span><span class="view-value" id="viewPresentAddress">—</span></div>
+                <div class="view-item view-full"><span class="view-label">Permanent Address</span><span class="view-value" id="viewPermanentAddress">—</span></div>
+            </div>
+        </div>
+
+        <!-- Family -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Family Information</h3>
+            <div class="view-row-grid">
+                <div class="view-item"><span class="view-label">Father's Name</span><span class="view-value" id="viewFatherName">—</span></div>
+                <div class="view-item"><span class="view-label">Father's Occupation</span><span class="view-value" id="viewFatherOccupation">—</span></div>
+                <div class="view-item"><span class="view-label">Mother's Name</span><span class="view-value" id="viewMotherName">—</span></div>
+                <div class="view-item"><span class="view-label">Mother's Occupation</span><span class="view-value" id="viewMotherOccupation">—</span></div>
+            </div>
+            <div id="viewSiblingsWrap">
+                <h4 class="view-subtitle">Siblings</h4>
+                <div id="viewSiblingsList" class="chip-list"></div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Educational Background</h3>
+            <div class="edu-block">
+                <span class="edu-tag">SSC</span>
+                <span class="edu-name" id="viewSscSchool">—</span>
+                <span class="edu-detail" id="viewSscDetail">—</span>
+            </div>
+            <div class="edu-block">
+                <span class="edu-tag">HSC</span>
+                <span class="edu-name" id="viewHscCollege">—</span>
+                <span class="edu-detail" id="viewHscDetail">—</span>
+            </div>
+            <div class="edu-block">
+                <span class="edu-tag">UG</span>
+                <span class="edu-name" id="viewUniversity">—</span>
+                <span class="edu-detail" id="viewUgDetail">—</span>
+            </div>
+        </div>
+
+        <!-- Blood Donation Info -->
+        <div class="card view-card hidden" id="bloodInfoCard">
+            <h3 class="view-card-title">Blood Donation</h3>
+            <div class="view-row-grid">
+                <div class="view-item">
+                    <span class="view-label">Blood Group</span>
+                    <span class="view-value" id="bloodGroupDisplay">—</span>
+                </div>
+                <div class="view-item" id="donorStatusWrap">
+                    <span class="view-label">Donor Status</span>
+                    <span class="view-value" id="donorStatusDisplay">—</span>
+                </div>
+            </div>
+            <div id="bloodAvailabilityBox" class="blood-status-box hidden"></div>
+        </div>
+
+        <!-- Skills -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Skills</h3>
+            <div id="viewSkillsList" class="chip-list"></div>
+            <p class="view-empty hidden" id="skillsEmpty">No skill has been added.</p>
+        </div>
+
+        <!-- Experience -->
+        <div class="card view-card">
+            <h3 class="view-card-title">Experience</h3>
+            <div id="viewExperienceList"></div>
+            <p class="view-empty hidden" id="experienceEmpty">No experience has been added.</p>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="../js/auth.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

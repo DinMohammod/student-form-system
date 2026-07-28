@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Form System — Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+<div class="portal">
+
+    <!-- Left Panel -->
+    <div class="portal-side">
+        <div class="side-content">
+            <span class="side-eyebrow">Student Form System</span>
+            <h1 class="side-heading">Application<br>Portal</h1>
+            <p class="side-text">
+                Complete your application with 
+                personal, family, and educational information.
+            </p>
+
+            <div class="ledger">
+    <div class="ledger-row feature-row">
+        <span class="feature-mark">01</span>
+        <div class="feature-text">
+            <span class="feature-title">All-in-One Profile</span>
+            <span class="feature-desc">Personal, family, academic, and professional information — all in one place.</span>
+        </div>
+    </div>
+    <div class="ledger-row feature-row">
+        <span class="feature-mark">02</span>
+        <div class="feature-text">
+            <span class="feature-title">Secure by Design</span>
+            <span class="feature-desc">Your data is saved using encrypted passwords and protected transactions.</span>
+        </div>
+    </div>
+    <div class="ledger-row feature-row">
+        <span class="feature-mark">03</span>
+        <div class="feature-text">
+            <span class="feature-title">Track Anytime</span>
+            <span class="feature-desc">You can check your application status from the dashboard at any time.</span>
+        </div>
+    </div>
+</div>
+        
+        </div>
+        <div class="side-stamp">
+            <span>Est. 2026</span>
+        </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="portal-form">
+        <div class="form-card">
+
+            <div class="tabs">
+                <button class="tab-btn active" id="tabLogin" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" id="tabRegister" onclick="switchTab('register')">New Account</button>
+            </div>
+
+            <!-- ==================== LOGIN FORM ==================== -->
+            <form id="loginForm" class="auth-form">
+                <p class="form-title">Welcome Back</p>
+                <p class="form-subtitle">Log in using your account.</p>
+
+                <div class="field">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                </div>
+
+                <div class="field">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                </div>
+
+                <p class="form-message" id="loginMessage"></p>
+
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+
+            <!-- ==================== REGISTER FORM ==================== -->
+            <form id="registerForm" class="auth-form hidden">
+                <p class="form-title">Create Account</p>
+                <p class="form-subtitle">Open a new account and start the application.</p>
+
+                <div class="field">
+                    <label for="registerUsername">Full Name</label>
+                    <input type="text" id="registerUsername" placeholder="Din Mohammod" required>
+                </div>
+
+                <div class="field">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" placeholder="you@example.com" required>
+                </div>
+
+                <div class="field">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" placeholder="Atleast ৬ Character" required>
+                </div>
+
+                <p class="form-message" id="registerMessage"></p>
+
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="../js/login.js"></script>
+</body>
+</html>

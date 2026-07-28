@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Form System — Application</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/form.css">
+</head>
+<body>
+
+<!-- Top Bar -->
+<header class="topbar">
+    <div class="topbar-brand">
+        <span class="brand-mark">SFS</span>
+        <span class="brand-name">Student Form System</span>
+    </div>
+    <a href="dashboard.html" class="exit-link">Save &amp; Exit</a>
+</header>
+
+<main class="form-page">
+
+    <!-- Step Indicator -->
+    <div class="stepper">
+        <div class="step-item active" data-step="1">
+            <span class="step-circle">1</span>
+            <span class="step-name">Personal</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="2">
+            <span class="step-circle">2</span>
+            <span class="step-name">Family</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="3">
+            <span class="step-circle">3</span>
+            <span class="step-name">Education</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="4">
+            <span class="step-circle">4</span>
+            <span class="step-name">Skills</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="5">
+            <span class="step-circle">5</span>
+            <span class="step-name">Experience</span>
+        </div>
+    </div>
+
+    <div class="form-shell">
+
+        <!-- ===================== STEP 1: PERSONAL ===================== -->
+        <section class="form-step active" id="step1">
+            <span class="step-eyebrow">Step 01</span>
+            <h1 class="step-heading">Personal Information</h1>
+            <p class="step-desc">Provide your personal information.</p>
+
+            <!-- Photo Upload -->
+            <div class="photo-upload-row">
+                <div class="photo-preview" id="photoPreview">
+                    <span id="photoPlaceholder">No Photo</span>
+                    <img id="photoImg" style="display:none;">
+                </div>
+                <div class="photo-upload-controls">
+                    <label for="photoInput" class="btn-secondary photo-btn">Upload Photo</label>
+                    <input type="file" id="photoInput" accept="image/jpeg,image/png,image/jpg" style="display:none;">
+                    <p class="photo-hint">JPG/PNG, Maximum 5MB (Optional)</p>
+                    <p class="form-error" id="photoError"></p>
+                </div>
+            </div>
+
+            <div class="field-grid">
+                <div class="field">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" placeholder="Din">
+                </div>
+                <div class="field">
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" placeholder="Mohammod">
+                </div>
+                <div class="field">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob">
+                </div>
+                <div class="field">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="text" id="mobile" placeholder="01XXXXXXXXX">
+                </div>
+                <div class="field">
+                    <label for="personalEmail">Email</label>
+                    <input type="email" id="personalEmail" placeholder="you@example.com">
+                </div>
+            </div>
+
+            <h3 class="sub-heading">Address</h3>
+            <div class="field-grid">
+                <div class="field field-full">
+                    <label for="presentAddress">Present Address</label>
+                    <textarea id="presentAddress" rows="2" placeholder="Present Address"></textarea>
+                </div>
+                <div class="field field-full">
+                    <label for="permanentAddress">Permanent Address</label>
+                    <textarea id="permanentAddress" rows="2" placeholder="Permanent Address"></textarea>
+                </div>
+                <div class="field field-full checkbox-field">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="sameAddress">
+                        Present Address, Permanent Address- same
+                    </label>
+                </div>
+            </div>
+
+            <h3 class="sub-heading">Blood Group</h3>
+            <div class="field-grid">
+                <div class="field">
+                    <label for="bloodGroup">Blood Group</label>
+                    <select id="bloodGroup">
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="Rather not say">Rather not say</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="donationQuestionWrap" class="blood-subsection hidden">
+                <div class="field field-inline-radio">
+                    <label>Have you donated blood before?</label>
+                    <div class="radio-row">
+                        <label class="radio-label"><input type="radio" name="donatedBefore" value="yes"> Yes, I have donated before</label>
+                        <label class="radio-label"><input type="radio" name="donatedBefore" value="no"> No, I haven't yet</label>
+                    </div>
+                </div>
+
+                <div id="donatedYesWrap" class="hidden">
+                    <div class="field-grid">
+                        <div class="field">
+                            <label for="lastDonationDate">When did you last donate?</label>
+                            <input type="date" id="lastDonationDate">
+                        </div>
+                    </div>
+                    <div id="availabilityMessage" class="availability-box hidden"></div>
+                </div>
+
+                <div id="donatedNoWrap" class="hidden">
+                    <div class="field field-inline-radio">
+                        <label>Would you like to be listed as a potential blood donor?</label>
+                        <div class="radio-row">
+                            <label class="radio-label"><input type="radio" name="wantsToBeDonor" value="yes"> Yes</label>
+                            <label class="radio-label"><input type="radio" name="wantsToBeDonor" value="no"> No</label>
+                        </div>
+                    </div>
+                    <p class="donor-note">ℹ️ We'll use the Name, Mobile, and Address you've already provided above — no need to enter it again.</p>
+                </div>
+            </div>
+
+            <p class="form-error" id="step1Error"></p>
+
+            <div class="step-actions">
+                <span></span>
+                <button type="button" class="btn-primary" onclick="goToStep(2)">Next</button>
+            </div>
+        </section>
+
+        <!-- ===================== STEP 2: FAMILY ===================== -->
+        <section class="form-step" id="step2">
+            <span class="step-eyebrow">Step 02</span>
+            <h1 class="step-heading">Family Information</h1>
+            <p class="step-desc">Provide information about your family.</p>
+
+            <h3 class="sub-heading">Father</h3>
+            <div class="field-grid">
+                <div class="field">
+                    <label for="fatherName">Name</label>
+                    <input type="text" id="fatherName" placeholder="Abdul Karim">
+                </div>
+                <div class="field">
+                    <label for="fatherOccupation">Occupation</label>
+                    <input type="text" id="fatherOccupation" placeholder="Business">
+                </div>
+                <div class="field">
+                    <label for="fatherMobile">Mobile</label>
+                    <input type="text" id="fatherMobile" placeholder="01XXXXXXXXX">
+                </div>
+            </div>
+
+            <h3 class="sub-heading">Mother</h3>
+            <div class="field-grid">
+                <div class="field">
+                    <label for="motherName">Name</label>
+                    <input type="text" id="motherName" placeholder="Rahima Begum">
+                </div>
+                <div class="field">
+                    <label for="motherOccupation">Occupation</label>
+                    <input type="text" id="motherOccupation" placeholder="Housewife">
+                </div>
+                <div class="field">
+                    <label for="motherMobile">Mobile</label>
+                    <input type="text" id="motherMobile" placeholder="01XXXXXXXXX">
+                </div>
+            </div>
+
+            <h3 class="sub-heading">Siblings</h3>
+            <div class="field field-inline">
+                <label for="siblingCount">Number of Siblings</label>
+                <input type="number" id="siblingCount" min="0" max="10" value="0">
+            </div>
+
+            <div id="siblingContainer" class="sibling-container"></div>
+
+            <p class="form-error" id="step2Error"></p>
+
+            <div class="step-actions">
+                <button type="button" class="btn-secondary" onclick="goToStep(1)">Back</button>
+                <button type="button" class="btn-primary" onclick="goToStep(3)">Next</button>
+            </div>
+        </section>
+
+        <!-- ===================== STEP 3: EDUCATION ===================== -->
+        <section class="form-step" id="step3">
+            <span class="step-eyebrow">Step 03</span>
+            <h1 class="step-heading">Educational Background</h1>
+            <p class="step-desc">Provide your educational details.</p>
+
+            <h3 class="sub-heading">SSC</h3>
+            <div class="field-grid">
+                <div class="field field-full">
+                    <label for="schoolName">School Name</label>
+                    <input type="text" id="schoolName" placeholder="ABC High School">
+                </div>
+                <div class="field">
+                    <label for="sscBoard">Board</label>
+                    <input type="text" id="sscBoard" placeholder="Comilla">
+                </div>
+                <div class="field">
+                    <label for="sscGpa">GPA</label>
+                    <input type="number" id="sscGpa" step="0.01" min="0" max="5" placeholder="5.00">
+                </div>
+                <div class="field">
+                    <label for="sscYear">Passing Year</label>
+                    <input type="number" id="sscYear" placeholder="2016">
+                </div>
+            </div>
+
+            <h3 class="sub-heading">HSC</h3>
+            <div class="field-grid">
+                <div class="field field-full">
+                    <label for="collegeName">College Name</label>
+                    <input type="text" id="collegeName" placeholder="XYZ College">
+                </div>
+                <div class="field">
+                    <label for="hscBoard">Board</label>
+                    <input type="text" id="hscBoard" placeholder="Comilla">
+                </div>
+                <div class="field">
+                    <label for="hscGpa">GPA</label>
+                    <input type="number" id="hscGpa" step="0.01" min="0" max="5" placeholder="5.00">
+                </div>
+                <div class="field">
+                    <label for="hscYear">Passing Year</label>
+                    <input type="number" id="hscYear" placeholder="2018">
+                </div>
+            </div>
+
+            <h3 class="sub-heading">Undergraduate</h3>
+            <div class="field-grid">
+                <div class="field field-full">
+                    <label for="university">University</label>
+                    <input type="text" id="university" placeholder="National University">
+                </div>
+                <div class="field">
+                    <label for="department">Department</label>
+                    <input type="text" id="department" placeholder="CSE">
+                </div>
+                <div class="field">
+                    <label for="semester">Current Semester</label>
+                    <input type="text" id="semester" placeholder="8th">
+                </div>
+                <div class="field">
+                    <label for="cgpa">CGPA</label>
+                    <input type="number" id="cgpa" step="0.01" min="0" max="4" placeholder="3.80">
+                </div>
+            </div>
+
+            <p class="form-error" id="step3Error"></p>
+
+            <div class="step-actions">
+                <button type="button" class="btn-secondary" onclick="goToStep(2)">Back</button>
+                <button type="button" class="btn-primary" onclick="goToStep(4)">Next</button>
+            </div>
+        </section>
+
+        <!-- ===================== STEP 4: SKILLS ===================== -->
+        <section class="form-step" id="step4">
+            <span class="step-eyebrow">Step 04</span>
+            <h1 class="step-heading">Skills</h1>
+            <p class="step-desc">Add your skills.(Optional)।</p>
+
+            <div id="skillContainer" class="dynamic-container"></div>
+
+            <button type="button" class="btn-add" onclick="addSkillRow()">+ Add Skill</button>
+
+            <p class="form-error" id="step4Error"></p>
+
+            <div class="step-actions">
+                <button type="button" class="btn-secondary" onclick="goToStep(3)">Back</button>
+                <button type="button" class="btn-primary" onclick="goToStep(5)">Next</button>
+            </div>
+        </section>
+
+        <!-- ===================== STEP 5: EXPERIENCE ===================== -->
+        <section class="form-step" id="step5">
+            <span class="step-eyebrow">Step 05</span>
+            <h1 class="step-heading">Experience</h1>
+            <p class="step-desc">Add your work experience. (Optional)।</p>
+
+            <div id="experienceContainer" class="dynamic-container"></div>
+
+            <button type="button" class="btn-add" onclick="addExperienceRow()">+ Add Experience</button>
+
+            <p class="form-error" id="step5Error"></p>
+
+            <div class="step-actions">
+                <button type="button" class="btn-secondary" onclick="goToStep(4)">Back</button>
+                <button type="button" class="btn-primary" id="submitBtn" onclick="submitApplication()">Submit Application</button>
+            </div>
+        </section>
+
+    </div>
+
+</main>
+
+<script src="../js/auth.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/form.js"></script>
+</body>
+</html>

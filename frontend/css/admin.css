@@ -1,0 +1,107 @@
+/* ========== ADMIN — Back Link ========== */
+.admin-back-link {
+    color: #FAF6EE;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+.admin-back-link:hover {
+    opacity: 1;
+}
+
+/* ========== ADMIN — Table ========== */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.admin-table thead th {
+    text-align: left;
+    padding: 12px 14px;
+    color: #6B7280;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid rgba(22, 35, 63, 0.1);
+}
+
+.admin-table tbody td {
+    padding: 14px;
+    border-bottom: 1px solid rgba(22, 35, 63, 0.06);
+}
+
+.admin-table tbody tr {
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.admin-table tbody tr:hover {
+    background: rgba(169, 129, 47, 0.08);
+}
+
+.admin-loading, .admin-empty {
+    text-align: center;
+    color: #6B7280;
+    padding: 24px !important;
+}
+
+/* ========== ADMIN — Status Badge ========== */
+.admin-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.admin-badge.completed {
+    background: rgba(34, 139, 34, 0.12);
+    color: #228B22;
+}
+
+.admin-badge.not-started {
+    background: rgba(220, 38, 38, 0.1);
+    color: #DC2626;
+}
+
+/* ========== ADMIN — Activity Timeline ========== */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(22, 35, 63, 0.06);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #A9812F;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.timeline-text {
+    font-size: 14px;
+    color: #16233F;
+}
+
+.timeline-time {
+    font-size: 12px;
+    color: #6B7280;
+    margin-top: 2px;
+}

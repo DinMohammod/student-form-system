@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Form System — Submitted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/success.css">
+</head>
+<body>
+
+<div class="success-page">
+    <div class="success-card">
+        <div class="stamp-circle">
+            <span class="stamp-check">✔</span>
+        </div>
+
+        <span class="success-eyebrow">Application Submitted</span>
+        <h1 class="success-heading">Thank you, your application has been completed.</h1>
+        <p class="success-desc">
+            Your personal, family, and educational information has been successfully saved.
+            You can view your application from the dashboard at any time.
+        </p>
+
+        <div class="success-meta">
+            <span class="meta-label">Submitted On</span>
+            <span class="meta-value" id="submittedDate">—</span>
+        </div>
+
+        <a href="dashboard.html" class="btn-primary">Go to Dashboard</a>
+    </div>
+</div>
+
+<script src="../js/auth.js"></script>
+<script>
+    requireAuth();
+
+    const today = new Date();
+    document.getElementById('submittedDate').textContent = today.toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric'
+    });
+</script>
+</body>
+</html>

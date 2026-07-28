@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Form System — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/cv.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+
+<header class="cv-controlbar no-print">
+    <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+    <span class="controlbar-title">CV Preview</span>
+</header>
+
+
+<div class="mode-selector-wrap no-print" id="modeSelectorWrap">
+    <p class="mode-question">In which format do you want to see the CV?</p>
+    <div class="mode-buttons">
+        <button type="button" class="mode-btn" id="proCvBtn">
+            <span class="mode-btn-title">Pro CV</span>
+            <span class="mode-btn-desc">Professional — Academic and skill-related information only</span>
+        </button>
+        <button type="button" class="mode-btn" id="bioDataBtn">
+            <span class="mode-btn-title">Bio Data</span>
+            <span class="mode-btn-desc">Complete — including family information</span>
+        </button>
+    </div>
+</div>
+
+
+<main class="cv-page hidden" id="cvPage">
+
+    <div class="switch-mode-bar no-print">
+        <span id="currentModeLabel">Pro CV</span> Now showing—
+        <button type="button" class="switch-mode-link" id="switchModeBtn">See other formats</button>
+    </div>
+
+    <!-- Header -->
+    <section class="cv-header">
+        <div class="cv-photo-wrap">
+            <img id="cvPhoto" class="cv-photo" style="display:none;">
+            <span id="cvPhotoPlaceholder" class="cv-photo-placeholder">No Photo</span>
+        </div>
+        <div class="cv-header-text">
+            <h1 class="cv-name" id="cvName">—</h1>
+            <p class="cv-tagline" id="cvTagline">—</p>
+            <div class="cv-contact" id="cvContact">
+                <span id="cvEmail">—</span>
+                <span id="cvMobile">—</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Information -->
+    <section class="cv-section">
+        <h2 class="cv-section-title">Personal Information</h2>
+        <div class="cv-grid">
+            <div class="cv-field"><span class="cv-field-label">Gender</span><span class="cv-field-value" id="cvGender">—</span></div>
+            <div class="cv-field"><span class="cv-field-label">Date of Birth</span><span class="cv-field-value" id="cvDob">—</span></div>
+            <div class="cv-field"><span class="cv-field-label">Blood Group</span><span class="cv-field-value" id="cvBloodGroup">—</span></div>
+            <div class="cv-field cv-field-full"><span class="cv-field-label">Present Address</span><span class="cv-field-value" id="cvPresentAddress">—</span></div>
+            <div class="cv-field cv-field-full"><span class="cv-field-label">Permanent Address</span><span class="cv-field-value" id="cvPermanentAddress">—</span></div>
+        </div>
+    </section>
+
+    
+    <section class="cv-section" id="cvFamilySection">
+        <h2 class="cv-section-title">Family Information</h2>
+        <div class="cv-grid">
+            <div class="cv-field"><span class="cv-field-label">Father's Name</span><span class="cv-field-value" id="cvFatherName">—</span></div>
+            <div class="cv-field"><span class="cv-field-label">Father's Occupation</span><span class="cv-field-value" id="cvFatherOccupation">—</span></div>
+            <div class="cv-field"><span class="cv-field-label">Mother's Name</span><span class="cv-field-value" id="cvMotherName">—</span></div>
+            <div class="cv-field"><span class="cv-field-label">Mother's Occupation</span><span class="cv-field-value" id="cvMotherOccupation">—</span></div>
+        </div>
+        <div id="cvSiblingsWrap">
+            <h3 class="cv-subtitle">Siblings</h3>
+            <div id="cvSiblingsList" class="cv-chip-list"></div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="cv-section">
+        <h2 class="cv-section-title">Educational Background</h2>
+
+        <div class="cv-edu-item">
+            <div class="cv-edu-top">
+                <span class="cv-edu-name" id="cvSscSchool">—</span>
+                <span class="cv-edu-tag">SSC</span>
+            </div>
+            <p class="cv-edu-detail" id="cvSscDetail">—</p>
+        </div>
+
+        <div class="cv-edu-item">
+            <div class="cv-edu-top">
+                <span class="cv-edu-name" id="cvHscCollege">—</span>
+                <span class="cv-edu-tag">HSC</span>
+            </div>
+            <p class="cv-edu-detail" id="cvHscDetail">—</p>
+        </div>
+
+        <div class="cv-edu-item">
+            <div class="cv-edu-top">
+                <span class="cv-edu-name" id="cvUniversity">—</span>
+                <span class="cv-edu-tag">Undergraduate</span>
+            </div>
+            <p class="cv-edu-detail" id="cvUgDetail">—</p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="cv-section" id="cvSkillsSection">
+        <h2 class="cv-section-title">Skills</h2>
+        <div id="cvSkillsList" class="cv-chip-list"></div>
+    </section>
+
+    <!-- Experience -->
+    <section class="cv-section" id="cvExperienceSection">
+        <h2 class="cv-section-title">Experience</h2>
+        <div id="cvExperienceList"></div>
+    </section>
+
+    <!-- Download Button -->
+    <div class="cv-download-wrap no-print">
+        <button type="button" class="download-btn" id="downloadPdfBtn">Download PDF</button>
+    </div>
+
+</main>
+
+<script src="../js/auth.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/cv.js"></script>
+</body>
+</html>
