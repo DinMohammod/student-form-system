@@ -1,5 +1,5 @@
 // Backend API Base URL
-const API_BASE_URL = 'http://localhost:5000/api/auth';
+const API_BASE_URL = 'https://student-form-system-production.up.railway.app/api/auth';
 
 // Tab Switch
 function switchTab(tab) {
